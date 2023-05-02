@@ -16,16 +16,9 @@ function solveEquation(a, b, c) {
 
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  let totalAmount = 0;
-  const percentPerMonth = parseFloat((percent / 100) / 12);
-  const creditAmount = parseFloat(amount - contribution);
-
-  if (isNaN(parseFloat(percent)) || isNaN(parseFloat(contribution)) || isNaN(parseFloat(amount)) || isNaN(parseFloat(countMonths))) {
-      return false;
-  } else {
-      const monthlyPayment = parseFloat(creditAmount * (percentPerMonth + percentPerMonth / (Math.pow(1 + percentPerMonth, countMonths) - 1)));
-      totalAmount = parseFloat(monthlyPayment * countMonths);
-      totalAmount = parseFloat(totalAmount.toFixed(2));
-      return totalAmount;
-  }
+  let pBet = (percent / 100 / 12);
+  let sumCredit = (amount - contribution);
+  let monthly = sumCredit * (pBet + (pBet / (((1 + pBet) ** countMonths) - 1)));
+  let totalAmount = (monthly * countMonths);
+  return Number(totalAmount.toFixed(2))
 }
