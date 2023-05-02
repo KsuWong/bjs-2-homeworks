@@ -1,4 +1,5 @@
-"use strict"
+"use strict";
+
 function solveEquation(a, b, c) {
   let arr = [];
   let discr = b**2 - 4*a*c;
