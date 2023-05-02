@@ -12,18 +12,20 @@ function solveEquation(a, b, c) {
     arr = [-b / (2 * a)];
   }  
   return arr;
-}
-
+};
 
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  if (!isNaN(percent) && !isNaN(contribution) && !isNaN(amount)) {
-      const perMonth = percent / 100 / 12;
-      const bodyCredit = amount - contribution;
-      const monthly = bodyCredit * (perMonth + (perMonth / (((1 + perMonth) ** countMonths) - 1)));
-      const totalSum = parseFloat((monthly * countMonths).toFixed(2));
-      return totalSum;
-  }
-  return false;
+  let totalAmount = 0;
+  const percentPerMonth = parseFloat((percent / 100) / 12);
+  const creditAmount = parseFloat(amount - contribution);
 
+  if (isNaN(parseFloat(percent)) || isNaN(parseFloat(contribution)) || isNaN(parseFloat(amount)) || isNaN(parseFloat(countMonths))) {
+      return false;
+  } else {
+      const monthlyPayment = parseFloat(creditAmount * (percentPerMonth + percentPerMonth / (Math.pow(1 + percentPerMonth, countMonths) - 1)));
+      totalAmount = parseFloat(monthlyPayment * countMonths);
+      totalAmount = parseFloat(totalAmount.toFixed(2));
+      return totalAmount;
+  }
 }
