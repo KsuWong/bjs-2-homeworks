@@ -5,10 +5,10 @@ function solveEquation(a, b, c) {
   let discr = b**2 - 4*a*c;
 
   if (discr < 0) {
-    arr = [];
+    arr;
   } else if (discr > 0) {
     arr = [(-b + Math.sqrt(discr)) / (2 * a), (-b - Math.sqrt(discr)) / (2 * a)];
-  } else {
+  } else if {
     arr = [-b / (2 * a)];
   }  
   return arr;
