@@ -14,7 +14,7 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-  if (this.hasOwnProperty("marks") && this.marks !== []) {
+  if (this.hasOwnProperty("marks")) {
     this.marks.push(...marks);
   } else {
     return 0;
@@ -22,7 +22,7 @@ Student.prototype.addMarks = function (...marks) {
 }
 
 Student.prototype.getAverage = function () {
-  if (this.hasOwnProperty("marks") && this.marks !== []) {
+  if (this.hasOwnProperty("marks") && this.marks.length > 0) {
     function findAverage (acc, mark, index, arr) {
         const sum = acc + mark;
         if (index === arr.length - 1) {
