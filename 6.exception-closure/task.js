@@ -1,9 +1,10 @@
 ﻿// Задача 1. Форматтер чисел
 function parseCount(parse) {
-    if (Number.isNaN(Number.parseFloat(parse))) {
+    let result = Number.parseFloat(parse);
+    if (Number.isNaN(result)) {
         throw error = new Error("Невалидное значение");
-    }
-    return Number.parseFloat(parse);
+    };
+    return result;
 }
 
 function validateCount(parse) {
@@ -20,7 +21,7 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        if (this.a + this.b < this.c || this.a + this.c < this.b || this.b + this.c < this.a) {
+        if (a + b < c || a + c < b || b + c < a) {
             throw new Error ("Треугольник с такими сторонами не существует")
         }       
     }
@@ -30,7 +31,7 @@ class Triangle {
     }
     
     get area() {
-        const p = (this.a + this.b + this.c) / 2;
+        const p = (this.perimeter) / 2;
         return Number((Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c))).toFixed(3));
     }
 }
