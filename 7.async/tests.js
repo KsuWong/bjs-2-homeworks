@@ -10,7 +10,7 @@ describe('Домашнее задание к лекции 7 «Асинхронн
     expect(clock).toBeTruthy();
   });
 
-  it('необходимо создавать добавлять звонок', () => {
+  it('необходимо добавлять звонок', () => {
     const callback = f => f;
     clock.addClock("16:45", callback);
     expect(clock.alarmCollection.length).toEqual(1);
@@ -44,7 +44,7 @@ describe('Домашнее задание к лекции 7 «Асинхронн
     expect(clock.intervalId).toBeNull();
   });
 
-  it('будильник не должен несколько интервалов', () => {
+  it('будильник не должен создавать несколько интервалов', () => {
     clock.start();
     const intervalId = clock.intervalId;
     clock.start();
